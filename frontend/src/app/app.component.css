@@ -1,0 +1,26 @@
+#footer {
+  position: fixed;
+  height: 30px;
+  bottom: 0;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+}
+
+.bg-verde {
+  background-color: #00420C;
+}
+
+.gradiente-verde {
+  background-image: linear-gradient(to right, #17872C, #00510F);
+}
+
+.tamanho-padrao {
+  width: 66%;
+  margin: auto;
+}
+
+.logo {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}

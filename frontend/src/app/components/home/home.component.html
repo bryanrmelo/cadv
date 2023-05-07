@@ -1,0 +1,58 @@
+<!--
+<div class="card-group container">
+  <div *ngFor="let video of videosConvertidos">
+    <div class="card shadow" style="width: 20rem">
+      <a [routerLink]="['/video', video.id]">
+        <img
+          [src]="video.snippet.thumbnails.medium.url"
+          class="card-img-top"
+          alt="..."
+      /></a>
+      <div class="card-body text-center">
+        <h5 class="card-title mb-0">
+          <a [routerLink]="['/video', video.id]">{{ video.snippet.title }} </a>
+        </h5>
+        <div class="card-text text-black-50">
+          {{ video.snippet.description.slice(0, 100) }}
+        </div>
+        <div *ngFor="let videoSemProcessar of videos">
+          <div
+            *ngIf="
+              usuario.nome == videoSemProcessar.autor.nome &&
+              videoSemProcessar.link == video.id
+            "
+          >
+            <a [routerLink]="['/video/editar', video.id]">
+              <button class="btn btn-warning">Editar</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="user">
+  <div class="dropup">
+    <button
+      type="button"
+      id="fixed-button"
+      class="btn btn-danger btn-circle btn-xl dropdown-toogle"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      <i class="fas fa-upload"></i>
+    </button>
+    <ul class="dropdown-menu bg-danger">
+      <li>
+        <a class="text-white text-center" routerLink="/video/enviar">Vídeo</a>
+      </li>
+      <li>
+        <a class="text-white text-center" routerLink="/fonte/enviar">Fonte</a>
+      </li>
+    </ul>
+  </div>
+</div>
+-->
+<div class="container">
+  <p>teste</p>
+</div>

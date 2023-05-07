@@ -1,0 +1,14 @@
+.btn-circle.btn-xl {
+  width: 75px;
+  height: 75px;
+  padding: 13px 18px;
+  border-radius: 60px;
+  font-size: 15px;
+  text-align: center;
+}
+
+#fixed-button {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+}

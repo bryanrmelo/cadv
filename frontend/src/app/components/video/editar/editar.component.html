@@ -1,0 +1,51 @@
+<div class="container">
+  <form [formGroup]="formUpload" (ngSubmit)="submit()" class="row g-3">
+    <div class="col-12">
+      <label class="form-label">Link do vídeo</label>
+      <input class="form-control" type="text" formControlName="link" />
+    </div>
+    <div class="col-12">
+      <label class="form-label">Título do vídeo</label>
+      <input class="form-control" type="text" formControlName="titulo" />
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Privacidade</label>
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        formControlName="privado"
+      >
+        <option value="false">Público</option>
+        <option value="true">Privado</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Categoria</label>
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        formControlName="categoria"
+      >
+        <option value="cientifico">Científico</option>
+        <option value="academico">Acadêmico</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Playlist</label>
+      <select class="form-select" aria-label="Default select example" formControlName="playlist">
+        <option value="default"></option>
+        <option *ngFor="let playlist of playlists" value="{{ playlist.id }}">
+          {{ playlist.nome }}
+        </option>
+      </select>
+    </div>
+    <span style="display: inline; margin-top: 50px">
+      <button class="m-1 p-1 btn btn-success" type="button" (click)="submit()">
+        Salvar
+      </button>
+      <button class="m-1 p-1 btn btn-danger" type="button" (click)="voltar()">
+        Cancelar
+      </button>
+    </span>
+  </form>
+</div>
