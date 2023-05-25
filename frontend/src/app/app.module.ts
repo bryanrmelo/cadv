@@ -18,6 +18,7 @@ import { EditarComponent } from './components/usuario/editar/editar.component';
 import { VideoComponent } from './components/video/video.component';
 import { EnviarVideoComponent } from './components/video/enviar/enviar.component';
 import { EditarVideoComponent } from './components/video/editar/editar.component';
+import { RegistrarComponent } from './registrar/registrar/registrar.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { EditarVideoComponent } from './components/video/editar/editar.component
     EnviarFonteComponent,
     UsuarioComponent,
     EditarComponent,
-    EditarVideoComponent
+    EditarVideoComponent,
+    RegistrarComponent
   ],
   imports: [
     BrowserModule,

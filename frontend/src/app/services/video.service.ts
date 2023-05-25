@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { map, Observable } from 'rxjs';
 import { Usuario } from 'src/app/models/usuario';
-import { Playlist } from '../models/playlist';
+import { Playlist } from '../models/Playlist';
 import { Video } from '../models/video';
 import { environment } from './../../environments/environment';
 

@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
       }
       this.converterParaVideoYoutube(this.videos);
     });
-    /*
+    
     this.videoServico
       .getVideosByName(localStorage.getItem('search'))
       .subscribe((videos: Video[]) => {
@@ -61,7 +61,6 @@ export class HomeComponent implements OnInit {
           this.spinner.hide();
         }, 3000);
       });
-      */
   }
 
   converterParaVideoYoutube(videos: Video[]): void {

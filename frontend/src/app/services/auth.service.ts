@@ -7,7 +7,8 @@ import { Usuario } from '../models/usuario';
 @Injectable({
   providedIn: 'root',
 })
-export class LoginService {
+export class AuthService {
+  
   url = 'http://localhost:8080/api/v1';
   public currentUser: Observable<Usuario>;
 
@@ -48,6 +49,10 @@ export class LoginService {
 
   logout() {
     localStorage.removeItem('currentUser');
+  }
+
+  isAuthenticated() {
+    return this.currentUser? true: false;
   }
 
   getUser() {

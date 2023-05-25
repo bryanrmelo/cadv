@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
-import { LoginService } from 'src/app/services/login.service';
+import { AuthService } from 'src/app/services/auth.service';
 import {Md5} from 'ts-md5';
 
 @Component({
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private loginService: LoginService,
+    private authService: AuthService,
     private router: Router
   ) {}
 
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     //usuario.senha = Md5.hashStr(senha)
 
     if (
-      this.loginService.logar(usuario).subscribe(
+      this.authService.logar(usuario).subscribe(
         () => {
 
           this.router.navigateByUrl('/');
