@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.ifrs.conhecimentoatravesvideos.excecoes.FonteInvalidaException;
-import edu.ifrs.conhecimentoatravesvideos.servicos.FonteServico;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -17,7 +16,7 @@ import edu.ifrs.conhecimentoatravesvideos.servicos.FonteServico;
 public class FonteControleApi {
     
     
-    private FonteServico fonteServico;
+    // private FonteServico fonteServico;
 
     @PostMapping
     @ResponseBody

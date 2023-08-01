@@ -1,14 +1,12 @@
 package edu.ifrs.conhecimentoatravesvideos.model;
 
-import java.util.List;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 
 import org.springframework.hateoas.server.core.Relation;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -24,28 +22,25 @@ public class Usuario extends Entidade {
     @Column(nullable = false)
     private String senha;
 
-    @JsonIgnore
     @Column(nullable = false)
-    private String hash;
+    private boolean status;
 
     @Column(nullable = false)
-    private boolean ativo;
+    private String email;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "autor")
-    private List<Video> videos;
+    @Column
+    private String telefone;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "usuario")
-    private List<Playlist> playlists;
+    @Column
+    private Timestamp codigoRecuperacao;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "especialista")
-    private List<Verificacao> verificacoes;
+    @Column
+    private Timestamp horarioRecuperacao;
 
-    public Usuario() {
+    @Column
+    private Timestamp dataAssinaturaTermos;
 
-    }
+    public Usuario() {}
 
     public Usuario(String autor) {
         this.nome = autor;
@@ -53,18 +48,6 @@ public class Usuario extends Entidade {
 
     public String getNome() {
         return nome;
-    }
-
-    public boolean getAtivo() {
-        return this.ativo;
-    }
-
-    public List<Video> getVideos() {
-        return this.videos;
-    }
-
-    public void setVideos(List<Video> videos) {
-        this.videos = videos;
     }
 
     public void setNome(String nome) {
@@ -79,55 +62,52 @@ public class Usuario extends Entidade {
         this.senha = senha;
     }
 
-    public void encodeSenha(String senha, String hash) {
-        // generateHash();
-        this.senha = BCrypt.hashpw(senha, hash);
+    public boolean isStatus() {
+        return status;
     }
 
-    public String getHash() {
-        return hash;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
-    public void setHash(String hash) {
-        this.hash = BCrypt.gensalt(hash);
+    public String getEmail() {
+        return email;
     }
 
-    public void generateHash() {
-        this.hash = BCrypt.gensalt();
-
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public boolean isAtivo() {
-        return ativo;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setAtivo(boolean ativo) {
-        this.ativo = ativo;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
-    public List<Playlist> getPlaylists() {
-        return this.playlists;
+    public Timestamp getCodigoRecuperacao() {
+        return codigoRecuperacao;
     }
 
-    public void setPlaylists(List<Playlist> playlists) {
-        this.playlists = playlists;
+    public void setCodigoRecuperacao(Timestamp codigoRecuperacao) {
+        this.codigoRecuperacao = codigoRecuperacao;
     }
 
-    public List<Verificacao> getVerificacoes() {
-        return this.verificacoes;
+    public Timestamp getHorarioRecuperacao() {
+        return horarioRecuperacao;
     }
 
-    public void setVerificacoes(List<Verificacao> verificacoes) {
-        this.verificacoes = verificacoes;
+    public void setHorarioRecuperacao(Timestamp horarioRecuperacao) {
+        this.horarioRecuperacao = horarioRecuperacao;
     }
 
-    @Override
-    public String toString() {
-        return "{" +
-                " nome='" + getNome() + "'" +
-                ", senha='" + getSenha() + "'" +
-                ", ativo='" + isAtivo() + "'" +
-                "}";
+    public Timestamp getDataAssinaturaTermos() {
+        return dataAssinaturaTermos;
+    }
+
+    public void setDataAssinaturaTermos(Timestamp dataAssinaturaTermos) {
+        this.dataAssinaturaTermos = dataAssinaturaTermos;
     }
 
 }

@@ -40,7 +40,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return usuario.isAtivo() == true;
+        return usuario.isStatus() == true;
     }
 
     @Override

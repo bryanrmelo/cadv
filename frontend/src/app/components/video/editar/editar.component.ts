@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Playlist } from 'src/app/models/playlist';
 import { Usuario } from 'src/app/models/usuario';
 import { Video } from 'src/app/models/video';
 import { UploadService } from './../../../services/upload.service';
 import { VideoService } from './../../../services/video.service';
+import { Playlist } from 'src/app/models/playlist';
 
 @Component({
   selector: 'app-editar-video',

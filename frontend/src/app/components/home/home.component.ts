@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-
+    console.log(this.user);
     this.videoServico.getVideos().subscribe((videos: Video[]) => {
       for (let element of videos) {
         if (element.privado == false) {

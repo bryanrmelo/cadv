@@ -17,13 +17,13 @@ public class PlaylistAssembler implements SimpleRepresentationModelAssembler<Pla
 
     @Override
     public void addLinks(EntityModel<Playlist> resource) {
-        Long id = resource.getContent().getId();
+        // Long id = resource.getContent().getId();
 
-        Link selfLink = linkTo(methodOn(PlaylistControleApi.class).buscarPlaylistPorId(id))
-                .withSelfRel()
-                .withType("GET");
+        // Link selfLink = linkTo(methodOn(PlaylistControleApi.class).buscarPlaylistPorId(id))
+        //         .withSelfRel()
+        //         .withType("GET");
 
-        resource.add(selfLink);
+        // resource.add(selfLink);
         
     }
 

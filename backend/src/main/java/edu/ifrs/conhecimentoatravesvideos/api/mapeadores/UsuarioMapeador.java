@@ -13,7 +13,7 @@ public class UsuarioMapeador {
 
         usuario.setNome(usuarioDTO.getNome());
         usuario.setSenha(usuarioDTO.getSenha());
-        usuario.setAtivo(usuarioDTO.getAtivo());
+        usuario.setStatus(usuarioDTO.isStatus());
 
         return usuario;
     }

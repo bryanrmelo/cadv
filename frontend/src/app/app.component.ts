@@ -3,7 +3,7 @@ import { VideoService } from './services/video.service';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { LoginService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { YoutubeService } from './services/youtube.service';
 import { Video } from './models/video';
 
@@ -19,7 +19,7 @@ export class AppComponent {
   search: string = '';
 
   constructor(
-    private loginService: LoginService,
+    private loginService: AuthService,
     private videoService: VideoService,
     private homeComponent: HomeComponent
   ) {

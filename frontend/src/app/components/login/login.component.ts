@@ -43,7 +43,6 @@ export class LoginComponent implements OnInit {
     if (
       this.authService.logar(usuario).subscribe(
         () => {
-
           this.router.navigateByUrl('/');
         },
         (err) => {

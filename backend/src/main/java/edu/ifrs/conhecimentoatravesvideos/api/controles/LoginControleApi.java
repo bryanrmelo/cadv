@@ -26,7 +26,6 @@ public class LoginControleApi {
     @ResponseBody
     public ResponseEntity<Usuario> logar(@RequestBody UsuarioDTO usuarioDTO) throws LoginInvalidoException {
         return loginServico.validar(usuarioDTO);
-
     }
 
 }

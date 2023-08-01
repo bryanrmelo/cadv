@@ -1,19 +1,24 @@
 package edu.ifrs.conhecimentoatravesvideos.api.dto;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import java.sql.Timestamp;
 
 public class UsuarioDTO extends EntidadeDTO {
     
-    @NotNull
     private String nome;
-    
-    @Size(min = 5, max = 255)
-    @NotNull
+
     private String senha;
 
-    @NotNull
-    private boolean ativo;
+    private boolean status;
+
+    private String email;
+
+    private String telefone;
+
+    private Timestamp codigoRecuperacao;
+
+    private Timestamp horarioRecuperacao;
+
+    private Timestamp dataAssinaturaTermos;
 
     public String getNome() {
         return nome;
@@ -31,12 +36,52 @@ public class UsuarioDTO extends EntidadeDTO {
         this.senha = senha;
     }
 
-    public boolean getAtivo() {
-        return ativo;
+    public boolean isStatus() {
+        return status;
     }
 
-    public void setAtivo(boolean ativo) {
-        this.ativo = ativo;
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public Timestamp getCodigoRecuperacao() {
+        return codigoRecuperacao;
+    }
+
+    public void setCodigoRecuperacao(Timestamp codigoRecuperacao) {
+        this.codigoRecuperacao = codigoRecuperacao;
+    }
+
+    public Timestamp getHorarioRecuperacao() {
+        return horarioRecuperacao;
+    }
+
+    public void setHorarioRecuperacao(Timestamp horarioRecuperacao) {
+        this.horarioRecuperacao = horarioRecuperacao;
+    }
+
+    public Timestamp getDataAssinaturaTermos() {
+        return dataAssinaturaTermos;
+    }
+
+    public void setDataAssinaturaTermos(Timestamp dataAssinaturaTermos) {
+        this.dataAssinaturaTermos = dataAssinaturaTermos;
     }
 
 }
