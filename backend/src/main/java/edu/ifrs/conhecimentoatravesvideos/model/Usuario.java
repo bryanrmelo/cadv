@@ -31,16 +31,17 @@ public class Usuario extends Entidade {
     @Column
     private String telefone;
 
-    @Column
+    @Column(name="codigorecuperacao")
     private Timestamp codigoRecuperacao;
 
-    @Column
+    @Column(name="horariorecuperacao")
     private Timestamp horarioRecuperacao;
 
-    @Column
+    @Column(name="dataassinaturatermos")
     private Timestamp dataAssinaturaTermos;
 
-    public Usuario() {}
+    public Usuario() {
+    }
 
     public Usuario(String autor) {
         this.nome = autor;
@@ -108,6 +109,20 @@ public class Usuario extends Entidade {
 
     public void setDataAssinaturaTermos(Timestamp dataAssinaturaTermos) {
         this.dataAssinaturaTermos = dataAssinaturaTermos;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " nome='" + getNome() + "'" +
+            ", senha='" + getSenha() + "'" +
+            ", status='" + isStatus() + "'" +
+            ", email='" + getEmail() + "'" +
+            ", telefone='" + getTelefone() + "'" +
+            ", codigoRecuperacao='" + getCodigoRecuperacao() + "'" +
+            ", horarioRecuperacao='" + getHorarioRecuperacao() + "'" +
+            ", dataAssinaturaTermos='" + getDataAssinaturaTermos() + "'" +
+            "}";
     }
 
 }

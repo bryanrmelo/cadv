@@ -19,19 +19,22 @@ CREATE TABLE usuario (
 	id serial PRIMARY KEY,
 	nome varchar(255),
 	senha varchar(255),
-	hash varchar(255),
-	ativo boolean,
+	email varchar(255),
+	telefone varchar(9),
+	codigoRecuperacao varchar(10),
+	horarioRecuperacao timestamp,
+	dataAssinaturaTermos timestamp,
+	status boolean,
 	tipo_id int,
 	CONSTRAINT fk_tipo FOREIGN KEY (tipo_id) REFERENCES tipo(id)
 );
 
 INSERT INTO
-	usuario (nome, senha, hash, ativo, tipo_id)
+	usuario (nome, senha, status, tipo_id)
 VALUES
 	(
 		'admin',
-		'$2a$12$8s6qu3dz6kpzuLYUzMR1QuTTAakcMRMsf2aptaFiUJ4wjtgsErrZq',
-		'$2a$12$8s6qu3dz6kpzuLYUzMR1QuTTAakcMRMsf2aptaFiUJ4wjtgsErrZq',
+		'e1d92412bc45a6151d5b52e44100a957',
 		true,
 		1
 	);

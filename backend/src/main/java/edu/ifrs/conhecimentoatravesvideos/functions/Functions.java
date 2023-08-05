@@ -12,7 +12,7 @@ public final class Functions {
             md = MessageDigest.getInstance("MD5");
             md.update((str).getBytes());
             byte[] digest = md.digest();
-            return DatatypeConverter.printHexBinary(digest).toUpperCase();
+            return DatatypeConverter.printHexBinary(digest);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }

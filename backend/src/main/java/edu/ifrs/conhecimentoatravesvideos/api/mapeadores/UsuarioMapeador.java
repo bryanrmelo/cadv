@@ -11,7 +11,7 @@ public class UsuarioMapeador {
     public Usuario converterParaEntidade(UsuarioDTO usuarioDTO) {
         Usuario usuario = new Usuario();
 
-        usuario.setNome(usuarioDTO.getNome());
+        usuario.setEmail(usuarioDTO.getEmail());
         usuario.setSenha(usuarioDTO.getSenha());
         usuario.setStatus(usuarioDTO.isStatus());
 

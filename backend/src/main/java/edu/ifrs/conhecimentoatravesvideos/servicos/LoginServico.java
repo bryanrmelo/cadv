@@ -25,17 +25,21 @@ public class LoginServico {
     private UsuarioMapeador usuarioMapeador;
 
     public ResponseEntity<Usuario> validar(UsuarioDTO usuarioDTO) throws LoginInvalidoException {
-        Usuario usuario = usuarioMapeador.converterParaEntidade(usuarioDTO);
-        Usuario usuarioDb = usuarioRepositorio.getByNomeUsuario(usuario.getNome());
-        
-        usuario.setSenha(Functions.convertToMd5((usuario.getSenha() + Constants.SALT).toUpperCase()));
-                 
-        if (usuario.getSenha().equals(usuarioDb.getSenha())) {
-            return new ResponseEntity<Usuario>(usuarioDb, HttpStatus.OK);
-        } else {
-            throw new LoginInvalidoException();
-        }
-        
+        try {
+            Usuario usuario = usuarioMapeador.converterParaEntidade(usuarioDTO);
+            Usuario usuarioDb = usuarioRepositorio.getByEmail(usuario.getEmail());
+            
+            usuario.setSenha(Functions.convertToMd5(usuario.getSenha() + Constants.SALT));
+
+            if (usuario.getSenha().equals(usuarioDb.getSenha().toUpperCase())) {
+                return new ResponseEntity<>(usuarioDb, HttpStatus.OK);
+            } else {
+                throw new LoginInvalidoException();
+            }
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        } 
     }
+
 
 }

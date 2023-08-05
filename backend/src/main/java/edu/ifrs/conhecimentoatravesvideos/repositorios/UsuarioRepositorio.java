@@ -22,4 +22,7 @@ public interface UsuarioRepositorio extends JpaRepository<Usuario, Long> {
     @Query(value = "SELECT * FROM usuario WHERE nome = ?1", nativeQuery = true)
     Usuario getByNomeUsuario(String nome);
 
+    @Query(value = "SELECT * FROM usuario WHERE email LIKE %?1%", nativeQuery = true)
+    Usuario getByEmail(String email);
+
 }
