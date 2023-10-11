@@ -1,10 +1,7 @@
 package edu.ifrs.conhecimentoatravesvideos.api.dto;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.MappedSuperclass;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.hateoas.RepresentationModel;
 
 import edu.ifrs.conhecimentoatravesvideos.model.Entidade;
@@ -12,8 +9,6 @@ import edu.ifrs.conhecimentoatravesvideos.model.Entidade;
 @MappedSuperclass
 public abstract class EntidadeDTO extends RepresentationModel<EntidadeDTO> {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public Long getId() {

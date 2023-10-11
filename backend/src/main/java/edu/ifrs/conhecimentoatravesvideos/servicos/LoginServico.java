@@ -1,7 +1,5 @@
 package edu.ifrs.conhecimentoatravesvideos.servicos;
 
-import java.security.NoSuchAlgorithmException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +22,7 @@ public class LoginServico {
     @Autowired
     private UsuarioMapeador usuarioMapeador;
 
-    public ResponseEntity<Usuario> validar(UsuarioDTO usuarioDTO) throws LoginInvalidoException {
+    public ResponseEntity<Long> validar(UsuarioDTO usuarioDTO) throws LoginInvalidoException {
         try {
             Usuario usuario = usuarioMapeador.converterParaEntidade(usuarioDTO);
             Usuario usuarioDb = usuarioRepositorio.getByEmail(usuario.getEmail());
@@ -32,7 +30,7 @@ public class LoginServico {
             usuario.setSenha(Functions.convertToMd5(usuario.getSenha() + Constants.SALT));
 
             if (usuario.getSenha().equals(usuarioDb.getSenha().toUpperCase())) {
-                return new ResponseEntity<>(usuarioDb, HttpStatus.OK);
+                return new ResponseEntity<>(usuarioDb.getId(), HttpStatus.OK);
             } else {
                 throw new LoginInvalidoException();
             }
@@ -40,6 +38,4 @@ public class LoginServico {
             return ResponseEntity.internalServerError().build();
         } 
     }
-
-
 }

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import edu.ifrs.conhecimentoatravesvideos.api.dto.UsuarioDTO;
 import edu.ifrs.conhecimentoatravesvideos.excecoes.LoginInvalidoException;
-import edu.ifrs.conhecimentoatravesvideos.model.Usuario;
 import edu.ifrs.conhecimentoatravesvideos.servicos.LoginServico;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -24,8 +23,7 @@ public class LoginControleApi {
 
     @PostMapping
     @ResponseBody
-    public ResponseEntity<Usuario> logar(@RequestBody UsuarioDTO usuarioDTO) throws LoginInvalidoException {
+    public ResponseEntity<Long> logar(@RequestBody UsuarioDTO usuarioDTO) throws LoginInvalidoException {
         return loginServico.validar(usuarioDTO);
     }
-
 }

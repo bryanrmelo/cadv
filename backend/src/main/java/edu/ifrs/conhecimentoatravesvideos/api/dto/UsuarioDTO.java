@@ -84,4 +84,17 @@ public class UsuarioDTO extends EntidadeDTO {
         this.dataAssinaturaTermos = dataAssinaturaTermos;
     }
 
+    @Override
+    public String toString() {
+        return "{" +
+            " nome='" + getNome() + "'" +
+            ", senha='" + getSenha() + "'" +
+            ", status='" + isStatus() + "'" +
+            ", email='" + getEmail() + "'" +
+            ", telefone='" + getTelefone() + "'" +
+            ", codigoRecuperacao='" + getCodigoRecuperacao() + "'" +
+            ", horarioRecuperacao='" + getHorarioRecuperacao() + "'" +
+            ", dataAssinaturaTermos='" + getDataAssinaturaTermos() + "'" +
+            "}";
+    }
 }
