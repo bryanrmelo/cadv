@@ -36,7 +36,7 @@ export class AuthService {
         )
         .pipe(
           map((user) => {
-            localStorage.setItem('currentUser', JSON.stringify(user));
+            localStorage.setItem('currentUser', JSON.stringify(this.getUser(user)));
             return user;
           })
         );
@@ -55,10 +55,10 @@ export class AuthService {
     return this.currentUser? true: false;
   }
 
-  getUser() {
-    //if (this.id != null) {
-    let id = JSON.parse(localStorage.getItem('currentUser')).id;
-    return this.httpClient.get<any>(`${this.url}/usuario/${id}`);
-    //}
+  getUser(usuario: Usuario) {
+    if (usuario.id != null) {
+      return this.httpClient.get<any>(`${this.url}/usuario/${usuario.id}`);
+    }
+    return false;
   }
 }

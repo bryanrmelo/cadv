@@ -7,13 +7,13 @@ import { EnviarVideoComponent } from './components/video/enviar/enviar.component
 import { EditarVideoComponent } from './components/video/editar/editar.component';
 import { EnviarFonteComponent } from './components/fonte/enviar-fonte';
 import { VideoComponent } from './components/video/video.component';
-import { RegistrarComponent } from './components/registrar/registrar.component';
+import { CadastrarComponent } from './components/usuario/cadastrar/cadastrar.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'sidebar', component: SidebarComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'registrar', component: RegistrarComponent},
+  { path: 'cadastrar', component: CadastrarComponent},
   { path: 'video/enviar', component: EnviarVideoComponent },
   { path: 'fonte/enviar', component: EnviarFonteComponent },
   {

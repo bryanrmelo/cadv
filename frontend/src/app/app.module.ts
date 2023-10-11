@@ -18,7 +18,7 @@ import { EditarComponent } from './components/usuario/editar/editar.component';
 import { VideoComponent } from './components/video/video.component';
 import { EnviarVideoComponent } from './components/video/enviar/enviar.component';
 import { EditarVideoComponent } from './components/video/editar/editar.component';
-import { RegistrarComponent } from './components/registrar/registrar.component';
+import { CadastrarComponent } from './components/usuario/cadastrar/cadastrar.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { RegistrarComponent } from './components/registrar/registrar.component';
     UsuarioComponent,
     EditarComponent,
     EditarVideoComponent,
-    RegistrarComponent
+    CadastrarComponent
   ],
   imports: [
     AppRoutingModule,
