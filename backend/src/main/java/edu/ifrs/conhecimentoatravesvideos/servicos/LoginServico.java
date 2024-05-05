@@ -22,7 +22,7 @@ public class LoginServico {
     @Autowired
     private UsuarioMapeador usuarioMapeador;
 
-    public ResponseEntity<Long> validar(UsuarioDTO usuarioDTO) throws LoginInvalidoException {
+    public ResponseEntity<Boolean> validar(UsuarioDTO usuarioDTO) throws LoginInvalidoException {
         try {
             Usuario usuario = usuarioMapeador.converterParaEntidade(usuarioDTO);
             Usuario usuarioDb = usuarioRepositorio.getByEmail(usuario.getEmail());
@@ -30,7 +30,7 @@ public class LoginServico {
             usuario.setSenha(Functions.convertToMd5(usuario.getSenha() + Constants.SALT));
 
             if (usuario.getSenha().equals(usuarioDb.getSenha().toUpperCase())) {
-                return new ResponseEntity<>(usuarioDb.getId(), HttpStatus.OK);
+                return new ResponseEntity<>(true, HttpStatus.OK);
             } else {
                 throw new LoginInvalidoException();
             }

@@ -23,7 +23,7 @@ public class LoginControleApi {
 
     @PostMapping
     @ResponseBody
-    public ResponseEntity<Long> logar(@RequestBody UsuarioDTO usuarioDTO) throws LoginInvalidoException {
+    public ResponseEntity<Boolean> logar(@RequestBody UsuarioDTO usuarioDTO) throws LoginInvalidoException {
         return loginServico.validar(usuarioDTO);
     }
 }

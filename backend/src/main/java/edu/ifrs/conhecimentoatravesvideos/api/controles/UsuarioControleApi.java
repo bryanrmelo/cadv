@@ -8,6 +8,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,8 +49,8 @@ public class UsuarioControleApi {
         return usuarioAssembler.toModel(usuario);
     }
 
-    @PostMapping
-    public void criarUsuario() {
+    @PostMapping(consumes = { MediaType.APPLICATION_JSON_VALUE })
+    public void cadastrar() {
 
     }
 }

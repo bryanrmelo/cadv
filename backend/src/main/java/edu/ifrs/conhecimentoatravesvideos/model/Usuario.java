@@ -1,18 +1,25 @@
 package edu.ifrs.conhecimentoatravesvideos.model;
 
 import java.sql.Timestamp;
+import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.Size;
 
 import org.springframework.hateoas.server.core.Relation;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Relation(collectionRelation = "usuarios")
-public class Usuario extends Entidade {
+public class Usuario extends Entidade implements UserDetailsService {
 
     @Column(nullable = false)
     private String nome;
@@ -112,6 +119,11 @@ public class Usuario extends Entidade {
     }
 
     @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority("ADMIN"));
+    }
+
+    @Override
     public String toString() {
         return "{" +
             " nome='" + getNome() + "'" +
@@ -123,6 +135,12 @@ public class Usuario extends Entidade {
             ", horarioRecuperacao='" + getHorarioRecuperacao() + "'" +
             ", dataAssinaturaTermos='" + getDataAssinaturaTermos() + "'" +
             "}";
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'loadUserByUsername'");
     }
 
 }
